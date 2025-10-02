@@ -648,6 +648,20 @@ mcpServers:
     timeout: 120000
     iconPath: https://composio.dev/favicon.ico
 
+  # Gmail - Email Management (Composio)
+  gmail:
+    type: http
+    url: https://apollo.composio.dev/v3/mcp/31a0afe9-49cd-4931-bdb0-45a062b99d5f/mcp?user_id=quinn
+    timeout: 120000
+    iconPath: https://www.google.com/gmail/about/static-2.0/images/favicon.ico
+
+  # Cloudinary - Image & Media Management (Composio)
+  cloudinary:
+    type: http
+    url: https://apollo.composio.dev/v3/mcp/4bed9cd4-d3b9-445f-9a34-7cb6e1642fea/mcp?user_id=quinn
+    timeout: 120000
+    iconPath: https://cloudinary.com/favicon.ico
+
   # GoMarble - Marketing Analytics & Data \ OAuth only
   # gomarble:
   #   type: streamable-http
