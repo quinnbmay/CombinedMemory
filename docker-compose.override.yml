@@ -1,0 +1,38 @@
+services:
+  # LibreChat API - runs locally, connects to Railway services
+  api:
+    volumes:
+      - type: bind
+        source: ./librechat.yaml
+        target: /app/librechat.yaml
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+      - ./images:/app/client/public/images
+    environment:
+      - MONGO_URI=mongodb://mongo:1tqmplb1meh9xalw3j0o9ewmymtgba74@ballast.proxy.rlwy.net:43047/
+      - MEILI_HOST=https://meilisearch-production-63b9.up.railway.app
+      - RAG_API_URL=https://rag-api-production-6340.up.railway.app
+
+  # Use dummy container for MongoDB - using Railway via Tailscale
+  mongodb:
+    image: alpine:latest
+    command: "true"
+    restart: "no"
+
+  # Use dummy container for Meilisearch - using Railway instead
+  meilisearch:
+    image: alpine:latest
+    command: "true"
+    restart: "no"
+
+  # Use dummy container for RAG API - using Railway instead
+  rag_api:
+    image: alpine:latest
+    command: "true"
+    restart: "no"
+
+  # Use dummy container for VectorDB - using Railway instead
+  vectordb:
+    image: alpine:latest
+    command: "true"
+    restart: "no"
