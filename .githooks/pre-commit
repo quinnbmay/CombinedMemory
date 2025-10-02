@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Pre-commit hook to prevent committing secrets
+# This runs locally before each commit
+
+echo "🔍 Checking for secrets in staged files..."
+
+# Check for .env files (except examples)
+if git diff --cached --name-only | grep -qE '^\.env$|^\.env\.local$'; then
+    echo "❌ ERROR: Attempting to commit .env file!"
+    echo "   Please remove .env files from the commit."
+    exit 1
+fi
+
+# Check for .p8 Apple auth keys
+if git diff --cached --name-only | grep -q '\.p8$'; then
+    echo "❌ ERROR: Attempting to commit Apple auth key (.p8)!"
+    echo "   Please remove .p8 files from the commit."
+    exit 1
+fi
+
+# Check for API keys in file contents (excluding this hook file itself)
+if git diff --cached | grep -v '.githooks/pre-commit' | grep -qiE 'RAILWAY_API_TOKEN=|JINA_API_KEY=|APPLE_KEY_ID=|api_key=[a-zA-Z0-9]{20,}'; then
+    echo "⚠️  WARNING: Possible API key detected in staged changes!"
+    echo "   Please review your changes carefully before committing."
+    echo "   Continue anyway? (y/N)"
+    read -r response
+    if [[ ! "$response" =~ ^[Yy]$ ]]; then
+        echo "❌ Commit aborted."
+        exit 1
+    fi
+fi
+
+echo "✅ Pre-commit checks passed!"
+exit 0

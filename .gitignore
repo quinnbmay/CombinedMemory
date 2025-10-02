@@ -132,6 +132,18 @@ helm/**/.values.yaml
 # SAML Idp cert
 *.cert
 
+# Apple Auth Keys
+*.p8
+
+# MCP Auth
+.mcp-auth/
+
+# Backup files
+librechat.yaml.backup
+librechat.yaml.bak
+librechat.yml.backup
+librechat.yml.bak
+
 # AI Assistants
 /.claude/
 /.cursor/

@@ -1,0 +1,43 @@
+name: Watch Local Changes
+
+on:
+  schedule:
+    # Run every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  sync-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "Combined Memory Bot"
+          git config --global user.email "bot@combinedmemory.com"
+
+      - name: Pull latest changes
+        run: |
+          git pull origin main --rebase
+
+      - name: Check for uncommitted changes
+        id: check_status
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_status.outputs.has_changes == 'true'
+        run: |
+          git add -A
+          git commit -m "Auto-sync: Local configuration changes $(date +'%Y-%m-%d %H:%M:%S')"
+          git push origin main
