@@ -1,10 +1,15 @@
 name: Sync Locize Translations & Create Translation PR
 
+# Disabled - Locize API key not configured
+# Uncomment the 'on:' section below to re-enable
+# on:
+#   push:
+#     branches: [main]
+#   repository_dispatch:
+#     types: [locize/versionPublished]
+
 on:
-  push:
-    branches: [main]
-  repository_dispatch:
-    types: [locize/versionPublished]
+  workflow_dispatch: # Manual trigger only
 
 jobs:
   sync-translations:
