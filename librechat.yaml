@@ -623,7 +623,7 @@ mcpServers:
   # Notion - Database & Page Management (Smithery-hosted)
   notion:
     type: http
-    url: https://server.smithery.ai/@smithery/notion/mcp?api_key=c0696122-7da9-4c99-84e2-1798ce74a954&profile=given-narwhal-PvFXc4
+    url: https://server.smithery.ai/notion/mcp?api_key=c0696122-7da9-4c99-84e2-1798ce74a954&profile=given-narwhal-PvFXc4
     timeout: 60000
     iconPath: https://notion.so/images/favicon.ico
 
