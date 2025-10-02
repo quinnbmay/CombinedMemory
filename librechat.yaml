@@ -2801,3 +2801,112 @@ endpoints:
       summaryModel: "grok-beta"
       forcePrompt: false
       modelDisplayLabel: "Grok"
+
+    # Vercel AI Gateway
+    - name: "Vercel AI"
+      apiKey: "${VERCELAI_API_KEY}"
+      baseURL: "https://ai-gateway.vercel.sh/v1"
+      models:
+        default:
+          - "openai/gpt-4o"
+          - "openai/gpt-4o-mini"
+          - "anthropic/claude-3-5-sonnet"
+          - "meta-llama/llama-3.1-70b-instruct"
+        fetch: true
+      titleConvo: true
+      titleModel: "openai/gpt-4o-mini"
+      modelDisplayLabel: "Vercel AI"
+      iconURL: "https://vercel.com/favicon.ico"
+
+# Model Context Protocol (MCP) Servers
+mcpServers:
+  # Development & Project Management
+  railway:
+    type: stdio
+    command: npx
+    args:
+      - '@jasontanswe/railway-mcp'
+    env:
+      RAILWAY_TOKEN: 'ce075fe8-1873-4d61-a67a-f65a698ae3ec'
+    timeout: 60000
+    iconPath: https://railway.app/favicon.ico
+
+  # Web Development & Design (Local API Token)
+  webflow:
+    type: stdio
+    command: npx
+    args:
+      - '-y'
+      - 'webflow-mcp-server'
+    env:
+      WEBFLOW_TOKEN: '${WEBFLOW_TOKEN}'
+    timeout: 60000
+    iconPath: https://webflow.com/favicon.ico
+
+  # Workflow Automation
+  n8n-railway:
+    type: stdio
+    command: npx
+    args:
+      - '-y'
+      - 'mcp-remote'
+      - 'https://czlonkowskin8n-mcp-railwaylatest-production-23d6.up.railway.app/mcp'
+      - '--header'
+      - 'Authorization: Bearer cwmWLcSwK2jIuwCAgtYeDDwztEkc1afLomiFszDd8Fc='
+    timeout: 60000
+    iconPath: https://n8n.io/favicon.ico
+
+  # Memory & AI Enhancement (Composio Mem0)
+  memory:
+    type: http
+    url: https://apollo.composio.dev/v3/mcp/91bec9dc-e44a-4327-b35f-8227c006a8d1/mcp?user_id=quinn
+    iconPath: https://composio.dev/favicon.ico
+
+  # Document Processing & AI Analysis
+  jina-mcp-server:
+    type: stdio
+    command: npx
+    args:
+      - '-y'
+      - 'mcp-remote'
+      - 'https://mcp.jina.ai/sse'
+      - '--header'
+      - 'Authorization: Bearer ${JINA_API_KEY}'
+    timeout: 60000
+    iconPath: https://jina.ai/favicon.ico
+
+  # Notion - Database & Page Management (Smithery-hosted)
+  notion-mcp:
+    type: http
+    url: https://server.smithery.ai/@smithery/notion/mcp?api_key=c0696122-7da9-4c99-84e2-1798ce74a954&profile=given-narwhal-PvFXc4
+    timeout: 60000
+    iconPath: https://notion.so/images/favicon.ico
+
+  # Upstash Context7 - Documentation & Code Examples (Smithery-hosted)
+  upstash-context7:
+    type: http
+    url: https://server.smithery.ai/@upstash/context7-mcp/mcp?api_key=c0696122-7da9-4c99-84e2-1798ce74a954&profile=given-narwhal-PvFXc4
+    timeout: 60000
+    iconPath: https://upstash.com/favicon.ico
+
+  # GitHub - Repository Management & Copilot Integration (Smithery-hosted)
+  github:
+    type: http
+    url: https://apollo.composio.dev/v3/mcp/bfffce1c-2b9f-4a06-a8eb-b271e0659ae1/mcp?user_id=quinn
+    timeout: 120000
+    iconPath: https://github.com/favicon.ico
+
+  # Meta Ads Platform - Advertising Management (Composio)
+  meta-ads:
+    type: http
+    url: https://apollo.composio.dev/v3/mcp/439e4933-7c69-4b0d-b2c0-7172e8c6e668/mcp?user_id=meta
+    timeout: 60000
+    iconPath: https://composio.dev/favicon.ico
+
+  # GoMarble - Marketing Analytics & Data \ OAuth only
+  # gomarble:
+  #   type: streamable-http
+  #   url: https://apps.gomarble.ai/mcp-api/sse
+  #   initTimeout: 150000
+  #   timeout: 60000
+  #   iconPath: https://gomarble.ai/favicon.ico
