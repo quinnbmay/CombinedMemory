@@ -589,7 +589,7 @@ mcpServers:
     iconPath: https://webflow.com/favicon.ico
 
   # Workflow Automation
-  n8n-railway:
+  n8n:
     type: stdio
     command: npx
     args:
@@ -608,7 +608,7 @@ mcpServers:
     iconPath: https://composio.dev/favicon.ico
 
   # Document Processing & AI Analysis
-  jina-mcp-server:
+  jina:
     type: stdio
     command: npx
     args:
@@ -621,14 +621,14 @@ mcpServers:
     iconPath: https://jina.ai/favicon.ico
 
   # Notion - Database & Page Management (Smithery-hosted)
-  notion-mcp:
+  notion:
     type: http
-    url: https://server.smithery.ai/@smithery/notion/mcp?api_key=c0696122-7da9-4c99-84e2-1798ce74a954&profile=given-narwhal-PvFXc4
+    url: https://apollo.composio.dev/v3/mcp/1c138c5f-4e9d-49c1-a49c-279e2eda114c/mcp?user_id=quinn
     timeout: 60000
     iconPath: https://notion.so/images/favicon.ico
 
   # Upstash Context7 - Documentation & Code Examples (Smithery-hosted)
-  upstash-context7:
+  context7:
     type: http
     url: https://server.smithery.ai/@upstash/context7-mcp/mcp?api_key=c0696122-7da9-4c99-84e2-1798ce74a954&profile=given-narwhal-PvFXc4
     timeout: 60000
