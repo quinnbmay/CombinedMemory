@@ -1,0 +1,12 @@
+# Add these lines to .gitignore to track your custom setup
+# while keeping secrets safe
+
+# Allow docker-compose.override.yml (your Railway config)
+!docker-compose.override.yml
+
+# Keep .env secret but track template
+.env
+!.env.railway
+
+# Track your librechat.yaml
+!librechat.yaml
