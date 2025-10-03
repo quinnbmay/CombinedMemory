@@ -574,14 +574,8 @@ mcpServers:
 
   # Web Development & Design (Local API Token)
   webflow:
-    type: stdio
-    command: npx
-    args:
-      - '-y'
-      - 'mcp-remote'
-      - 'https://webflow-mcp-server.up.railway.app/mcp'
-      - '--header'
-      - 'Authorization: Bearer ${WEBFLOW_TOKEN}'
+    type: http
+    url: https://server.smithery.ai/@webflow/mcp-server/mcp?api_key=c0696122-7da9-4c99-84e2-1798ce74a954&profile=given-narwhal-PvFXc4
     timeout: 120000
     iconPath: https://webflow.com/favicon.ico
     startup: false
