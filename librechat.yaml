@@ -655,13 +655,6 @@ mcpServers:
     timeout: 120000
     iconPath: https://www.google.com/gmail/about/static-2.0/images/favicon.ico
 
-  # Cloudinary - Image & Media Management (Composio)
-  cloudinary:
-    type: http
-    url: https://apollo.composio.dev/v3/mcp/4bed9cd4-d3b9-445f-9a34-7cb6e1642fea/mcp?user_id=quinn
-    timeout: 120000
-    iconPath: https://cloudinary.com/favicon.ico
-
   # Cloudinary Advanced MCPs
   cloudinary-asset-mgmt-remote:
     type: http
