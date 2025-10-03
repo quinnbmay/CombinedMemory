@@ -572,9 +572,10 @@ mcpServers:
     args:
       - '@jasontanswe/railway-mcp'
     env:
-      RAILWAY_TOKEN: 'ce075fe8-1873-4d61-a67a-f65a698ae3ec'
+      RAILWAY_TOKEN: '${RAILWAY_TOKEN}'
     timeout: 120000
     iconPath: https://railway.app/favicon.ico
+    startup: false
 
   # Web Development & Design (Local API Token)
   webflow:
@@ -587,6 +588,7 @@ mcpServers:
       WEBFLOW_TOKEN: '${WEBFLOW_TOKEN}'
     timeout: 120000
     iconPath: https://webflow.com/favicon.ico
+    startup: false
 
   # Workflow Automation
   n8n:
@@ -597,9 +599,10 @@ mcpServers:
       - 'mcp-remote'
       - 'https://czlonkowskin8n-mcp-railwaylatest-production-23d6.up.railway.app/mcp'
       - '--header'
-      - 'Authorization: Bearer cwmWLcSwK2jIuwCAgtYeDDwztEkc1afLomiFszDd8Fc='
+      - 'Authorization: Bearer ${N8N_API_KEY}'
     timeout: 120000
     iconPath: https://n8n.io/favicon.ico
+    startup: false
 
   # Memory & AI Enhancement (Composio Mem0)
   memory:
@@ -620,6 +623,7 @@ mcpServers:
       - 'Authorization: Bearer ${JINA_API_KEY}'
     timeout: 120000
     iconPath: https://jina.ai/favicon.ico
+    startup: false
 
   # Notion - Database & Page Management (Smithery-hosted)
   notion:

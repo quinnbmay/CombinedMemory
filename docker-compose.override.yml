@@ -9,10 +9,25 @@ services:
       - ./uploads:/app/uploads
       - ./images:/app/client/public/images
       - ./client/public/assets:/app/client/public/assets
+      - /tmp/.npm:/tmp/.npm
+      - /tmp/.npm-global:/tmp/.npm-global
     environment:
       - MONGO_URI=mongodb://mongo:1tqmplb1meh9xalw3j0o9ewmymtgba74@ballast.proxy.rlwy.net:43047/
       - MEILI_HOST=https://meilisearch-production-63b9.up.railway.app
       - RAG_API_URL=https://rag-api-production-6340.up.railway.app
+      - WEBFLOW_TOKEN=${WEBFLOW_TOKEN}
+      - JINA_API_KEY=${JINA_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - OPENROUTER_KEY=${OPENROUTER_KEY}
+      - PERPLEXITY_API_KEY=${PERPLEXITY_API_KEY}
+      - VERCELAI_API_KEY=${VERCELAI_API_KEY}
+      - RAILWAY_TOKEN=${RAILWAY_TOKEN}
+      - N8N_API_KEY=${N8N_API_KEY}
+      - NPM_CONFIG_CACHE=/tmp/.npm
+      - NPM_CONFIG_PREFIX=/tmp/.npm-global
+      - NPM_CONFIG_UPDATE_NOTIFIER=false
 
   # Use dummy container for MongoDB - using Railway via Tailscale
   mongodb:
