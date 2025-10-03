@@ -655,37 +655,6 @@ mcpServers:
     timeout: 120000
     iconPath: https://www.google.com/gmail/about/static-2.0/images/favicon.ico
 
-  # Cloudinary Advanced MCPs
-  cloudinary-asset-mgmt-remote:
-    type: http
-    url: https://asset-management.mcp.cloudinary.com/sse
-    timeout: 120000
-    iconPath: https://cloudinary.com/favicon.ico
-
-  cloudinary-env-config-remote:
-    type: http
-    url: https://environment-config.mcp.cloudinary.com/sse
-    timeout: 120000
-    iconPath: https://cloudinary.com/favicon.ico
-
-  cloudinary-smd-remote:
-    type: http
-    url: https://structured-metadata.mcp.cloudinary.com/sse
-    timeout: 120000
-    iconPath: https://cloudinary.com/favicon.ico
-
-  cloudinary-analysis-remote:
-    type: http
-    url: https://analysis.mcp.cloudinary.com/sse
-    timeout: 120000
-    iconPath: https://cloudinary.com/favicon.ico
-
-  mediaflows:
-    type: http
-    url: https://mediaflows.mcp.cloudinary.com/v2/mcp
-    timeout: 120000
-    iconPath: https://cloudinary.com/favicon.ico
-
   # GoMarble - Marketing Analytics & Data \ OAuth only
   # gomarble:
   #   type: streamable-http
