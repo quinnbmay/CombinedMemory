@@ -1,5 +1,5 @@
 services:
-  # LibreChat API - FAST LOCAL MODE with local databases
+  # LibreChat API - runs locally, connects to Railway services
   api:
     volumes:
       - type: bind
@@ -10,30 +10,30 @@ services:
       - ./images:/app/client/public/images
       - ./client/public/assets:/app/client/public/assets
     environment:
-      # Use LOCAL databases for speed (no network latency)
-      - MONGO_URI=mongodb://mongodb:27017/LibreChat
-      - MEILI_HOST=http://meilisearch:7700
-      - RAG_API_URL=http://rag_api:8000
-      # Add resource limits for better performance
-      - NODE_ENV=production
-      - NODE_OPTIONS=--max-old-space-size=4096
+      - MONGO_URI=mongodb://mongo:1tqmplb1meh9xalw3j0o9ewmymtgba74@ballast.proxy.rlwy.net:43047/
+      - MEILI_HOST=https://meilisearch-production-63b9.up.railway.app
+      - RAG_API_URL=https://rag-api-production-6340.up.railway.app
 
-  # MongoDB - Local for SPEED (separate test data from Railway production)
+  # Use dummy container for MongoDB - using Railway via Tailscale
   mongodb:
-    restart: always
-    volumes:
-      - ./data-node-local:/data/db
+    image: alpine:latest
+    command: "true"
+    restart: "no"
 
-  # Meilisearch - Local search for SPEED
+  # Use dummy container for Meilisearch - using Railway instead
   meilisearch:
-    restart: always
-    volumes:
-      - ./meili_data_local:/meili_data
+    image: alpine:latest
+    command: "true"
+    restart: "no"
 
-  # RAG API - Local for SPEED
+  # Use dummy container for RAG API - using Railway instead
   rag_api:
-    restart: always
+    image: alpine:latest
+    command: "true"
+    restart: "no"
 
-  # VectorDB - Local for SPEED
+  # Use dummy container for VectorDB - using Railway instead
   vectordb:
-    restart: always
+    image: alpine:latest
+    command: "true"
+    restart: "no"
