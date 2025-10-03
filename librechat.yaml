@@ -570,9 +570,11 @@ mcpServers:
     type: stdio
     command: npx
     args:
-      - '@jasontanswe/railway-mcp'
-    env:
-      RAILWAY_TOKEN: '${RAILWAY_TOKEN}'
+      - '-y'
+      - 'mcp-remote'
+      - 'https://railway-mcp-server.up.railway.app/mcp'
+      - '--header'
+      - 'Authorization: Bearer ${RAILWAY_TOKEN}'
     timeout: 120000
     iconPath: https://railway.app/favicon.ico
     startup: false
@@ -583,9 +585,10 @@ mcpServers:
     command: npx
     args:
       - '-y'
-      - 'webflow-mcp-server'
-    env:
-      WEBFLOW_TOKEN: '${WEBFLOW_TOKEN}'
+      - 'mcp-remote'
+      - 'https://webflow-mcp-server.up.railway.app/mcp'
+      - '--header'
+      - 'Authorization: Bearer ${WEBFLOW_TOKEN}'
     timeout: 120000
     iconPath: https://webflow.com/favicon.ico
     startup: false
