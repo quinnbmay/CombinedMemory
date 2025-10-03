@@ -585,10 +585,9 @@ mcpServers:
     command: npx
     args:
       - '-y'
-      - 'mcp-remote'
-      - 'https://webflow-mcp-server.up.railway.app/mcp'
-      - '--header'
-      - 'Authorization: Bearer ${WEBFLOW_TOKEN}'
+      - 'webflow-mcp-server'
+    env:
+      WEBFLOW_TOKEN: '${WEBFLOW_TOKEN}'
     timeout: 120000
     iconPath: https://webflow.com/favicon.ico
     startup: false
