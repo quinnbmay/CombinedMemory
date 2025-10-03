@@ -605,6 +605,7 @@ mcpServers:
   memory:
     type: http
     url: https://apollo.composio.dev/v3/mcp/91bec9dc-e44a-4327-b35f-8227c006a8d1/mcp?user_id=quinn
+    timeout: 120000
     iconPath: https://composio.dev/favicon.ico
 
   # Document Processing & AI Analysis
